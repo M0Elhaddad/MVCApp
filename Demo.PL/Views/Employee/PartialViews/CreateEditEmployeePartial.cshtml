@@ -1,0 +1,55 @@
+﻿@model EmployeeViewModel
+@inject IUnitOfWork _unitOfWork
+@{
+    
+    var department = new SelectList(_unitOfWork.DepartmentRepository.GetAll(), nameof(Department.Id), nameof(Department.Name));
+}
+
+<div class="form-group">
+    <label class="col-form-label" asp-for="Name"></label>
+    <input asp-for="Name" class="form-control" />
+    <span asp-validation-for="Name" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label class="col-form-label" asp-for="Age"></label>
+    <input asp-for="Age" class="form-control" />
+    <span asp-validation-for="Age" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label class="col-form-label" asp-for="Address"></label>
+    <input asp-for="Address" class="form-control" />
+    <span asp-validation-for="Address" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label class="col-form-label" asp-for="Salary"></label>
+    <input asp-for="Salary" class="form-control" />
+    <span asp-validation-for="Salary" class="text-danger"></span>
+</div>
+<div class="form-check">
+    <input asp-for="IsActive" class="form-check-inline" />
+    <label class="col-form-label" asp-for="IsActive"></label>
+</div>
+<div class="form-group">
+    <label class="col-form-label" asp-for="Email"></label>
+    <input asp-for="Email" class="form-control" />
+    <span asp-validation-for="Email" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label class="col-form-label" asp-for="PhoneNumber"></label>
+    <input asp-for="PhoneNumber" class="form-control" />
+    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label class="col-form-label" asp-for="HireDate"></label>
+    <input asp-for="HireDate" class="form-control" />
+</div>
+<div class="form-group">
+    <label class="col-form-label" asp-for="Department"></label>
+    <select class="form-control" asp-for="DeptId" asp-items="@department" >
+        <option value="@null"> -- Select Department -- </option>
+    </select>
+</div>
+<div class="form-group" >
+    <label class="col-form-label"asp-for="Image"></label>
+    <input class="form-control-file" asp-for="Image" />
+</div>
